@@ -108,12 +108,12 @@ def parse_arguments() -> argparse.Namespace:
         choices=[None, "cpu", "cuda", "insane"],
     )
     parser.add_argument(
-        "--hf_token",
+        "--hf-token",
         help="huggingface token to use for downloading models",
         default=None,
     )
     parser.add_argument(
-        "--save_hf_token",
+        "--save_hf-token",
         help="save huggingface token to a file for future use",
         action="store_true",
     )
@@ -172,7 +172,7 @@ def main() -> int:
         print("Defaulting to large-v3 model for --device insane")
         args.model = "large-v3"
 
-    hf_token_path = Path(user_cache_dir(), "hf_token.txt")
+    hf_token_path = Path(user_cache_dir(), "hf-token.txt")
     if args.hf_token is None:
         args.hf_token = os.environ.get("HF_TOKEN", None)
         if args.hf_token is None and hf_token_path.exists():
